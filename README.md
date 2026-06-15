@@ -38,9 +38,12 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy Marketplace Contract
 
+See **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** for the full step-by-step guide.
+
+Quick version:
+
 ```bash
-cd contracts
-forge build
+cd contracts && forge build
 export PRIVATE_KEY=your_deployer_key
 export FEE_RECIPIENT=your_fee_wallet
 forge script script/DeployMarketplace.s.sol --rpc-url https://api.mainnet.abs.xyz --broadcast

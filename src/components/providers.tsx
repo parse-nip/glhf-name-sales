@@ -2,10 +2,18 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
-import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { wagmiConfig } from "@/lib/wagmi";
 import { useState, type ReactNode } from "react";
+
+const glhfTheme = darkTheme({
+  accentColor: "#5eead4",
+  accentColorForeground: "#07070f",
+  borderRadius: "none",
+  fontStack: "system",
+  overlayBlur: "small",
+});
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -13,20 +21,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider
-          theme={{
-            lightMode: lightTheme({
-              accentColor: "#2f6feb",
-              borderRadius: "medium",
-              fontStack: "system",
-            }),
-            darkMode: darkTheme({
-              accentColor: "#2f6feb",
-              borderRadius: "medium",
-              fontStack: "system",
-            }),
-          }}
-        >
+        <RainbowKitProvider theme={glhfTheme} modalSize="compact">
           {children}
         </RainbowKitProvider>
       </QueryClientProvider>

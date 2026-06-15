@@ -3,9 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   MarketplaceListingBuy,
@@ -71,19 +68,19 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
 
   return (
     <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-      <div className="relative aspect-square overflow-hidden rounded-2xl border border-border/70 bg-muted/30">
+      <div className="glhf-panel relative aspect-square overflow-hidden">
         {imageUrl ? (
           <Image
             src={imageUrl}
             alt={name}
             fill
-            className="object-cover"
+            className="pixel-art object-cover"
             priority
             unoptimized
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <span className="font-heading text-6xl font-semibold text-muted-foreground">
+            <span className="font-pixel text-2xl text-glhf-mint">
               {name.slice(0, 2).toUpperCase()}
             </span>
           </div>
@@ -92,27 +89,25 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
 
       <div className="space-y-6">
         <div className="space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="secondary">Gigaverse Name</Badge>
-            <Badge variant="outline">Abstract</Badge>
-          </div>
-          <h1 className="font-heading text-4xl font-semibold tracking-tight">
-            {name}
+          <p className="font-pixel text-[8px] tracking-widest text-glhf-purple">
+            GIGA-NAME
+          </p>
+          <h1 className="font-pixel text-xl leading-relaxed text-foreground sm:text-2xl">
+            {name.toUpperCase()}
           </h1>
-          <p className="text-muted-foreground">{description}</p>
+          <p className="font-retro text-xl text-muted-foreground">{description}</p>
         </div>
 
-        <Separator />
+        <div className="h-0.5 w-full bg-border" />
 
-        <Card>
-          <CardContent className="space-y-4 pt-6">
+        <div className="glhf-panel space-y-4 p-5">
             {glhfListing && MARKETPLACE_ADDRESS !== ZERO_ADDRESS ? (
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-muted-foreground">
-                    GLHF Names price
+                  <span className="font-pixel text-[7px] tracking-widest text-muted-foreground">
+                    GLHF PRICE
                   </span>
-                  <span className="text-2xl font-semibold tabular-nums">
+                  <span className="font-retro text-2xl tabular-nums text-glhf-mint">
                     {formatEthPrice(glhfListing.price.toString())} ETH
                   </span>
                 </div>
@@ -124,10 +119,10 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
             ) : openseaPrice ? (
               <>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-muted-foreground">
-                    OpenSea price
+                  <span className="font-pixel text-[7px] tracking-widest text-muted-foreground">
+                    OPENSEA
                   </span>
-                  <span className="text-2xl font-semibold tabular-nums">
+                  <span className="font-retro text-2xl tabular-nums text-glhf-mint">
                     {formatEthPrice(openseaPrice)} ETH
                   </span>
                 </div>
@@ -135,41 +130,40 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
                   href={`https://opensea.io/assets/abstract/0x57e8994e2ac2e49974b0ae685c15b468d1c09259/${tokenId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-9 w-full items-center justify-center rounded-lg bg-primary px-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/80"
+                  className="inline-flex h-10 w-full items-center justify-center border-2 border-glhf-mint bg-glhf-mint font-pixel text-[9px] text-primary-foreground shadow-[3px_3px_0_0_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
                 >
-                  Buy on OpenSea
+                  BUY ON OPENSEA
                 </a>
               </>
             ) : (
-              <p className="text-center text-muted-foreground">
-                This name is not currently listed for sale.
+              <p className="text-center font-retro text-lg text-muted-foreground">
+                Not listed for sale.
               </p>
             )}
-          </CardContent>
-        </Card>
+        </div>
 
         {gigaMeta?.attributes && (
           <div className="space-y-3">
-            <h2 className="text-sm font-medium text-muted-foreground">
-              Properties
+            <h2 className="font-pixel text-[8px] tracking-widest text-muted-foreground">
+              PROPERTIES
             </h2>
             <div className="grid grid-cols-2 gap-2">
               {gigaMeta.attributes.map((attr) => (
                 <div
                   key={attr.trait_type}
-                  className="rounded-lg border border-border/70 bg-muted/30 px-3 py-2"
+                  className="glhf-stat-pill px-3 py-2"
                 >
-                  <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                  <p className="font-pixel text-[7px] tracking-wider text-muted-foreground">
                     {attr.trait_type}
                   </p>
-                  <p className="font-medium">{String(attr.value)}</p>
+                  <p className="font-retro text-lg">{String(attr.value)}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        <div className="space-y-2 text-sm text-muted-foreground">
+        <div className="space-y-2 font-retro text-base text-muted-foreground">
           <p>
             <span className="text-foreground">Contract: </span>
             <Link
@@ -190,17 +184,17 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
         <div className="flex gap-3">
           <Link
             href="/"
-            className="inline-flex h-8 items-center justify-center rounded-lg border border-border bg-background px-2.5 text-sm font-medium transition-colors hover:bg-muted"
+            className="inline-flex h-10 items-center justify-center border-2 border-border bg-glhf-surface px-4 font-pixel text-[8px] transition-colors hover:border-glhf-mint hover:text-glhf-mint"
           >
-            ← Back to explore
+            ← EXPLORE
           </Link>
           <a
             href="https://gigaverse.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-8 items-center justify-center rounded-lg border border-border bg-background px-2.5 text-sm font-medium transition-colors hover:bg-muted"
+            className="inline-flex h-10 items-center justify-center border-2 border-glhf-purple px-4 font-pixel text-[8px] text-glhf-purple transition-colors hover:bg-glhf-purple hover:text-background"
           >
-            Play Gigaverse
+            PLAY GAME
           </a>
         </div>
       </div>

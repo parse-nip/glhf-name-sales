@@ -14,9 +14,9 @@ export function NameGrid({
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {Array.from({ length: 8 }).map((_, i) => (
           <div key={i} className="space-y-3">
-            <Skeleton className="aspect-square w-full rounded-xl" />
-            <Skeleton className="h-4 w-2/3" />
-            <Skeleton className="h-3 w-1/2" />
+            <Skeleton className="aspect-square w-full border-2 border-border bg-muted" />
+            <Skeleton className="h-5 w-2/3 bg-muted" />
+            <Skeleton className="h-4 w-1/2 bg-muted" />
           </div>
         ))}
       </div>
@@ -25,11 +25,11 @@ export function NameGrid({
 
   if (!listings.length) {
     return (
-      <div className="rounded-xl border border-dashed border-border bg-muted/30 px-6 py-16 text-center">
-        <p className="font-heading text-lg text-muted-foreground">
-          No names found
+      <div className="glhf-panel px-6 py-16 text-center">
+        <p className="font-pixel text-xs text-muted-foreground">
+          NO NAMES FOUND
         </p>
-        <p className="mt-1 text-sm text-muted-foreground/80">
+        <p className="mt-2 font-retro text-lg text-muted-foreground">
           Try a different search or check back later.
         </p>
       </div>
@@ -38,8 +38,8 @@ export function NameGrid({
 
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-      {listings.map((listing) => (
-        <NameCard key={listing.id} listing={listing} />
+      {listings.map((listing, index) => (
+        <NameCard key={listing.tokenId} listing={listing} index={index} />
       ))}
     </div>
   );

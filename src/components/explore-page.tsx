@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Input } from "@/components/ui/input";
+import { HeroBanner } from "@/components/hero-banner";
 import { NameGrid } from "@/components/name-grid";
+import { StatPill } from "@/components/stat-pill";
 import type { NameListing } from "@/lib/types";
 
 export function ExplorePage() {
@@ -49,50 +50,35 @@ export function ExplorePage() {
 
   return (
     <div className="space-y-8">
-      <section className="space-y-4">
-        <div className="space-y-2">
-          <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-            Gigaverse Names
-          </h1>
-          <p className="max-w-2xl text-muted-foreground">
-            Trade unique Gigaverse usernames on Abstract. Each name is an
-            on-chain NFT that becomes your in-game identity.
-          </p>
+      <HeroBanner />
+
+      {stats && (
+        <div className="flex flex-wrap gap-3">
+          <StatPill
+            label="Total Names"
+            value={stats.totalSupply.toLocaleString()}
+          />
+          <StatPill label="Listed" value={String(stats.listedCount)} />
+          {stats.floorPriceEth && (
+            <StatPill
+              label="Floor"
+              value={`${stats.floorPriceEth} ETH`}
+              highlight
+            />
+          )}
         </div>
-
-        {stats && (
-          <div className="flex flex-wrap gap-6 text-sm">
-            <div>
-              <span className="text-muted-foreground">Total names </span>
-              <span className="font-medium tabular-nums">
-                {stats.totalSupply.toLocaleString()}
-              </span>
-            </div>
-            <div>
-              <span className="text-muted-foreground">Listed </span>
-              <span className="font-medium tabular-nums">
-                {stats.listedCount}
-              </span>
-            </div>
-            {stats.floorPriceEth && (
-              <div>
-                <span className="text-muted-foreground">Floor </span>
-                <span className="font-medium tabular-nums">
-                  {stats.floorPriceEth} ETH
-                </span>
-              </div>
-            )}
-          </div>
-        )}
-      </section>
+      )}
 
       <section className="space-y-4">
-        <Input
-          placeholder="Search names…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="max-w-md bg-background"
-        />
+        <div className="relative max-w-md">
+          <input
+            type="text"
+            placeholder="Search names"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className={`glhf-input w-full px-4 py-3 text-xl text-foreground placeholder:text-muted-foreground focus:outline-none ${!query ? "animate-blink-cursor" : ""}`}
+          />
+        </div>
         <NameGrid listings={listings} loading={loading} />
       </section>
     </div>

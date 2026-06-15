@@ -17,13 +17,17 @@ export function ListingsPage() {
   }, []);
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-2">
-        <h1 className="font-heading text-3xl font-semibold tracking-tight">
-          For Sale
+    <div className="space-y-8">
+      <div className="glhf-panel space-y-3 px-6 py-8">
+        <p className="font-pixel text-[10px] tracking-[0.3em] text-glhf-purple">
+          LIVE LISTINGS
+        </p>
+        <h1 className="font-pixel text-lg text-foreground sm:text-xl">
+          FOR SALE
         </h1>
-        <p className="text-muted-foreground">
-          All Gigaverse names currently listed on OpenSea and GLHF Names.
+        <p className="font-retro text-xl text-muted-foreground">
+          Unique Gigaverse names currently listed. One card per name — lowest
+          price shown.
         </p>
       </div>
       <NameGrid listings={listings} loading={loading} />

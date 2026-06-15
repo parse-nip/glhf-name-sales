@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Press_Start_2P, VT323 } from "next/font/google";
 import { Header } from "@/components/header";
+import { PixelGrid, Scanlines } from "@/components/pixel-effects";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans",
+const pressStart = Press_Start_2P({
+  variable: "--font-pixel",
+  weight: "400",
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-heading",
+const vt323 = VT323({
+  variable: "--font-retro",
   weight: "400",
   subsets: ["latin"],
 });
@@ -33,22 +35,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} h-full`}>
-      <body className="min-h-full bg-[#fafafa] font-sans text-foreground antialiased">
+    <html
+      lang="en"
+      className={`${pressStart.variable} ${vt323.variable} h-full dark`}
+    >
+      <body className="relative min-h-full font-retro text-foreground antialiased">
+        <PixelGrid />
+        <Scanlines />
         <Providers>
           <Header />
-          <main className="mx-auto max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
+          <main className="relative z-10 mx-auto max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
             {children}
           </main>
-          <footer className="border-t border-border/60 py-8">
-            <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6">
-              <p>GLHF Names — built for the Gigaverse community</p>
-              <div className="flex gap-4">
+          <footer className="relative z-10 border-t-2 border-border py-8">
+            <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-lg text-muted-foreground sm:flex-row sm:px-6">
+              <p className="font-pixel text-[8px] tracking-wider">
+                GLHF NAMES — BUILT FOR GIGAVERSE
+              </p>
+              <div className="flex gap-6 font-retro text-base">
                 <a
                   href="https://gigaverse.io"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-foreground"
+                  className="transition-colors hover:text-glhf-mint"
                 >
                   Gigaverse
                 </a>
@@ -56,7 +65,7 @@ export default function RootLayout({
                   href="https://opensea.io/collection/gigaverse-names"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-foreground"
+                  className="transition-colors hover:text-glhf-mint"
                 >
                   OpenSea
                 </a>
@@ -64,7 +73,7 @@ export default function RootLayout({
                   href="https://www.glhfers.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-foreground"
+                  className="transition-colors hover:text-glhf-mint"
                 >
                   GLHFers
                 </a>

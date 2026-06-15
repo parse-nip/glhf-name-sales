@@ -101,33 +101,38 @@ export function SellPage() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-8">
-      <div className="space-y-2">
-        <h1 className="font-heading text-3xl font-semibold tracking-tight">
-          Sell a Name
-        </h1>
-        <p className="text-muted-foreground">
+      <div className="glhf-panel space-y-3 px-6 py-8">
+        <p className="font-pixel text-[10px] tracking-[0.3em] text-glhf-mint">
+          LIST YOUR NAME
+        </p>
+        <h1 className="font-pixel text-lg sm:text-xl">SELL</h1>
+        <p className="font-retro text-xl text-muted-foreground">
           List your Gigaverse name NFT for sale. Buyers pay in ETH on Abstract.
         </p>
       </div>
 
       {!marketplaceDeployed && (
-        <Card className="border-amber-200 bg-amber-50/50 dark:border-amber-900 dark:bg-amber-950/20">
-          <CardContent className="pt-6 text-sm text-muted-foreground">
-            The GLHF marketplace contract is not deployed yet. You can still
-            list on{" "}
-            <a
-              href="https://opensea.io/collection/gigaverse-names"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-foreground underline"
-            >
-              OpenSea
-            </a>
-            . Deploy the contract and set{" "}
-            <code className="rounded bg-muted px-1">NEXT_PUBLIC_MARKETPLACE_ADDRESS</code>{" "}
-            to enable direct listings here.
-          </CardContent>
-        </Card>
+        <div className="glhf-panel border-glhf-purple p-5 font-retro text-lg text-muted-foreground">
+          Marketplace contract not deployed yet. List on{" "}
+          <a
+            href="https://opensea.io/collection/gigaverse-names"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-glhf-mint underline"
+          >
+            OpenSea
+          </a>{" "}
+          for now, or see{" "}
+          <a
+            href="https://github.com/parse-nip/glhf-name-sales/blob/main/docs/DEPLOYMENT.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-glhf-purple underline"
+          >
+            deployment guide
+          </a>
+          .
+        </div>
       )}
 
       {isConnected && ownedNames.length > 0 && (

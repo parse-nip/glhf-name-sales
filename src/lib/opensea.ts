@@ -1,4 +1,5 @@
 import { formatEther, parseEther } from "viem";
+import { dedupeListingsByTokenId } from "./listings";
 import type { GigaNameNFT, NameListing, OpenSeaListing } from "./types";
 
 const OPENSEA_API = "https://api.opensea.io/api/v2";
@@ -114,9 +115,11 @@ export async function fetchListings(limit = 48) {
     })
   );
 
-  return data.listings
+  const active = data.listings
     .filter((l) => l.status === "ACTIVE")
     .map((l) => openSeaListingToNameListing(l, nftMap.get(l.asset.identifier)));
+
+  return dedupeListingsByTokenId(active);
 }
 
 export async function searchNames(query: string, limit = 24) {
