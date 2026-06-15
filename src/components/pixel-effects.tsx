@@ -1,6 +1,6 @@
 "use client";
 
-/** Falling ember/spark streaks from the GLHFers volcanic PFP aesthetic */
+/** Falling ember/spark streaks — Gigaverse volcanic PFP aesthetic */
 export function FallingEmbers() {
   const embers = [
     { left: "6%", delay: "0s", dur: "7s", w: 2, h: 8, rot: -35 },
@@ -109,7 +109,7 @@ function PixelGround() {
   );
 }
 
-/** Full-page GLHFers volcanic sunset scene */
+/** Full-page Gigaverse volcanic sunset scene (@playgigaverse) */
 export function GlhfSceneBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>

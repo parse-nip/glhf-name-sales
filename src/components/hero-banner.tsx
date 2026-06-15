@@ -32,7 +32,7 @@ export function HeroBanner() {
           </p>
         </div>
 
-        {/* GLHFers mascot from X PFP */}
+        {/* Gigaverse mascot from @playgigaverse */}
         <div className="relative mx-auto shrink-0 sm:mx-0">
           <div
             className="animate-mascot-bob absolute -inset-3 rounded-sm opacity-60"
@@ -44,8 +44,8 @@ export function HeroBanner() {
           />
           <div className="glhf-mascot-frame relative">
             <Image
-              src="/assets/glhfers-pfp.png"
-              alt="GLHFers"
+              src="/assets/gigaverse-pfp.png"
+              alt="Gigaverse"
               width={140}
               height={140}
               className="pixel-art h-[120px] w-[120px] sm:h-[140px] sm:w-[140px]"
@@ -53,7 +53,7 @@ export function HeroBanner() {
             />
           </div>
           <p className="mt-2 text-center font-pixel text-[7px] tracking-widest text-glhf-gold">
-            GLHF
+            GIGAVERSE
           </p>
         </div>
       </div>

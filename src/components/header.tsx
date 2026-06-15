@@ -22,15 +22,15 @@ export function Header() {
           <Link href="/" className="group flex items-center gap-3">
             <div className="glhf-mascot-frame relative h-9 w-9 overflow-hidden p-0.5 transition-transform group-hover:-translate-y-0.5">
               <Image
-                src="/assets/glhfers-pfp.png"
-                alt="GLHFers"
+                src="/assets/gigaverse-pfp.png"
+                alt="Gigaverse"
                 width={36}
                 height={36}
                 className="pixel-art h-full w-full object-cover"
               />
             </div>
             <span className="hidden font-pixel text-[9px] tracking-wider text-foreground sm:block">
-              GLHF<span className="text-glhf-gold">NAMES</span>
+              GIGA<span className="text-glhf-gold">NAMES</span>
             </span>
           </Link>
           <nav className="flex items-center gap-1">

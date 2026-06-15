@@ -19,11 +19,11 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "GLHF Names — Gigaverse Username Marketplace",
+  title: "Gigaverse Names — Username Marketplace on Abstract",
   description:
-    "Buy and sell Gigaverse character names on Abstract. Trade unique on-chain usernames for the GLHF / Gigaverse RPG.",
+    "Buy and sell Gigaverse character names on Abstract. Trade unique on-chain usernames for the Gigaverse RPG.",
   openGraph: {
-    title: "GLHF Names",
+    title: "Gigaverse Names",
     description: "Marketplace for Gigaverse usernames on Abstract",
     type: "website",
   },
@@ -51,7 +51,7 @@ export default function RootLayout({
           <footer className="relative z-10 border-t-2 border-border py-8">
             <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-lg text-muted-foreground sm:flex-row sm:px-6">
               <p className="font-pixel text-[8px] tracking-wider">
-                GLHF NAMES — BUILT FOR GIGAVERSE
+                GIGAVERSE NAMES MARKETPLACE
               </p>
               <div className="flex gap-6 font-retro text-base">
                 <a
@@ -71,12 +71,12 @@ export default function RootLayout({
                   OpenSea
                 </a>
                 <a
-                  href="https://www.glhfers.com"
+                  href="https://x.com/playgigaverse"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-glhf-gold"
                 >
-                  GLHFers
+                  @playgigaverse
                 </a>
               </div>
             </div>
