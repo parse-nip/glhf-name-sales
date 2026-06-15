@@ -21,6 +21,7 @@ import {
   MARKETPLACE_ADDRESS,
 } from "@/lib/constants";
 import { gigaNameNftAbi, marketplaceAbi } from "@/lib/abis";
+import { abstractChain } from "@/lib/wagmi";
 
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
@@ -64,7 +65,7 @@ export function SellPage() {
       toast.error("Marketplace contract not deployed yet");
       return;
     }
-    if (!tokenId || !price) {
+    if (!tokenId || !price || !address) {
       toast.error("Enter token ID and price");
       return;
     }
@@ -73,6 +74,8 @@ export function SellPage() {
       const priceWei = parseEther(price);
 
       await writeContractAsync({
+        chain: abstractChain,
+        account: address,
         address: GIGA_NAME_NFT,
         abi: gigaNameNftAbi,
         functionName: "setApprovalForAll",
@@ -80,6 +83,8 @@ export function SellPage() {
       });
 
       await writeContractAsync({
+        chain: abstractChain,
+        account: address,
         address: MARKETPLACE_ADDRESS,
         abi: marketplaceAbi,
         functionName: "list",
@@ -208,12 +213,16 @@ function MarketplaceListingBuy({
   listingId: number;
   priceWei: bigint;
 }) {
+  const { address } = useAccount();
   const { writeContractAsync, data: txHash, isPending } = useWriteContract();
   const { isLoading: confirming } = useWaitForTransactionReceipt({ hash: txHash });
 
   const handleBuy = async () => {
+    if (!address) return;
     try {
       await writeContractAsync({
+        chain: abstractChain,
+        account: address,
         address: MARKETPLACE_ADDRESS,
         abi: marketplaceAbi,
         functionName: "buy",
