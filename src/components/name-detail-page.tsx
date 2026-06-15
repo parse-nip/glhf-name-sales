@@ -80,7 +80,7 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <span className="font-pixel text-2xl text-glhf-mint">
+            <span className="font-pixel text-2xl text-glhf-gold">
               {name.slice(0, 2).toUpperCase()}
             </span>
           </div>
@@ -107,7 +107,7 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
                   <span className="font-pixel text-[7px] tracking-widest text-muted-foreground">
                     GLHF PRICE
                   </span>
-                  <span className="font-retro text-2xl tabular-nums text-glhf-mint">
+                  <span className="font-retro text-2xl tabular-nums text-glhf-gold">
                     {formatEthPrice(glhfListing.price.toString())} ETH
                   </span>
                 </div>
@@ -122,7 +122,7 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
                   <span className="font-pixel text-[7px] tracking-widest text-muted-foreground">
                     OPENSEA
                   </span>
-                  <span className="font-retro text-2xl tabular-nums text-glhf-mint">
+                  <span className="font-retro text-2xl tabular-nums text-glhf-gold">
                     {formatEthPrice(openseaPrice)} ETH
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
                   href={`https://opensea.io/assets/abstract/0x57e8994e2ac2e49974b0ae685c15b468d1c09259/${tokenId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 w-full items-center justify-center border-2 border-glhf-mint bg-glhf-mint font-pixel text-[9px] text-primary-foreground shadow-[3px_3px_0_0_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex h-10 w-full items-center justify-center border-2 border-glhf-gold bg-glhf-gold font-pixel text-[9px] text-primary-foreground shadow-[3px_3px_0_0_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
                 >
                   BUY ON OPENSEA
                 </a>
@@ -184,7 +184,7 @@ export function NameDetailPage({ tokenId }: { tokenId: string }) {
         <div className="flex gap-3">
           <Link
             href="/"
-            className="inline-flex h-10 items-center justify-center border-2 border-border bg-glhf-surface px-4 font-pixel text-[8px] transition-colors hover:border-glhf-mint hover:text-glhf-mint"
+            className="inline-flex h-10 items-center justify-center border-2 border-border bg-glhf-surface px-4 font-pixel text-[8px] transition-colors hover:border-glhf-gold hover:text-glhf-gold"
           >
             ← EXPLORE
           </Link>

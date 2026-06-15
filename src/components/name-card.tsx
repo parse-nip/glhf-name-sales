@@ -29,24 +29,24 @@ export function NameCard({
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-gradient-to-br from-[#141425] to-[#0a0a14]">
-            <span className="font-pixel text-sm text-glhf-mint">
+            <span className="font-pixel text-sm text-glhf-gold">
               {listing.name.slice(0, 2).toUpperCase()}
             </span>
           </div>
         )}
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 pt-8 opacity-0 transition-opacity group-hover:opacity-100">
-          <span className="font-pixel text-[8px] text-glhf-mint">VIEW →</span>
+          <span className="font-pixel text-[8px] text-glhf-gold">VIEW →</span>
         </div>
       </div>
       <div className="space-y-2 border-t-2 border-border p-3">
-        <h3 className="group-hover-glitch truncate font-retro text-xl leading-tight text-foreground group-hover:text-glhf-mint">
+        <h3 className="group-hover-glitch truncate font-retro text-xl leading-tight text-foreground group-hover:text-glhf-gold">
           {listing.name}
         </h3>
         <div className="flex items-baseline justify-between">
           <span className="font-pixel text-[7px] tracking-widest text-muted-foreground">
             PRICE
           </span>
-          <span className="font-retro text-lg tabular-nums text-glhf-mint">
+          <span className="font-retro text-lg tabular-nums text-glhf-gold">
             {listing.priceEth === "—"
               ? "UNLISTED"
               : `${listing.priceEth} ETH`}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import { Header } from "@/components/header";
-import { PixelGrid, Scanlines } from "@/components/pixel-effects";
+import { GlhfSceneBackground, PixelGrid, Scanlines } from "@/components/pixel-effects";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
@@ -40,6 +40,7 @@ export default function RootLayout({
       className={`${pressStart.variable} ${vt323.variable} h-full dark`}
     >
       <body className="relative min-h-full font-retro text-foreground antialiased">
+        <GlhfSceneBackground />
         <PixelGrid />
         <Scanlines />
         <Providers>
@@ -57,7 +58,7 @@ export default function RootLayout({
                   href="https://gigaverse.io"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-glhf-mint"
+                  className="transition-colors hover:text-glhf-gold"
                 >
                   Gigaverse
                 </a>
@@ -65,7 +66,7 @@ export default function RootLayout({
                   href="https://opensea.io/collection/gigaverse-names"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-glhf-mint"
+                  className="transition-colors hover:text-glhf-gold"
                 >
                   OpenSea
                 </a>
@@ -73,7 +74,7 @@ export default function RootLayout({
                   href="https://www.glhfers.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-glhf-mint"
+                  className="transition-colors hover:text-glhf-gold"
                 >
                   GLHFers
                 </a>

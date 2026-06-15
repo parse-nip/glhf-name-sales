@@ -22,7 +22,7 @@ export function StatPill({
       <span
         className={cn(
           "font-retro text-2xl tabular-nums",
-          highlight ? "text-glhf-mint" : "text-foreground"
+          highlight ? "text-glhf-gold" : "text-foreground"
         )}
       >
         {value}

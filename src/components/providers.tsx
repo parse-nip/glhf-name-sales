@@ -8,8 +8,8 @@ import { wagmiConfig } from "@/lib/wagmi";
 import { useState, type ReactNode } from "react";
 
 const glhfTheme = darkTheme({
-  accentColor: "#5eead4",
-  accentColorForeground: "#07070f",
+  accentColor: "#ffd700",
+  accentColorForeground: "#1a0528",
   borderRadius: "none",
   fontStack: "system",
   overlayBlur: "small",

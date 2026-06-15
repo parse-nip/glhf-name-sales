@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -15,15 +16,21 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-border bg-background/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b-3 border-border bg-background/75 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <div className="flex items-center gap-6 sm:gap-10">
           <Link href="/" className="group flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center border-2 border-glhf-mint bg-glhf-surface font-pixel text-[10px] text-glhf-mint shadow-[2px_2px_0_0_var(--glhf-mint)] transition-transform group-hover:-translate-y-0.5">
-              G
-            </span>
-            <span className="hidden font-pixel text-[10px] tracking-wider text-foreground sm:block">
-              GLHF<span className="text-glhf-mint">NAMES</span>
+            <div className="glhf-mascot-frame relative h-9 w-9 overflow-hidden p-0.5 transition-transform group-hover:-translate-y-0.5">
+              <Image
+                src="/assets/glhfers-pfp.png"
+                alt="GLHFers"
+                width={36}
+                height={36}
+                className="pixel-art h-full w-full object-cover"
+              />
+            </div>
+            <span className="hidden font-pixel text-[9px] tracking-wider text-foreground sm:block">
+              GLHF<span className="text-glhf-gold">NAMES</span>
             </span>
           </Link>
           <nav className="flex items-center gap-1">
@@ -34,7 +41,7 @@ export function Header() {
                 className={cn(
                   "px-3 py-2 font-retro text-lg transition-colors",
                   pathname === item.href
-                    ? "border-b-2 border-glhf-mint text-glhf-mint"
+                    ? "border-b-2 border-glhf-gold text-glhf-gold"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >

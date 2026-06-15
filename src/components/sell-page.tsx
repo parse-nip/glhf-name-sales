@@ -102,7 +102,7 @@ export function SellPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <div className="glhf-panel space-y-3 px-6 py-8">
-        <p className="font-pixel text-[10px] tracking-[0.3em] text-glhf-mint">
+        <p className="font-pixel text-[10px] tracking-[0.3em] text-glhf-gold">
           LIST YOUR NAME
         </p>
         <h1 className="font-pixel text-lg sm:text-xl">SELL</h1>
@@ -118,7 +118,7 @@ export function SellPage() {
             href="https://opensea.io/collection/gigaverse-names"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-glhf-mint underline"
+            className="text-glhf-gold underline"
           >
             OpenSea
           </a>{" "}
