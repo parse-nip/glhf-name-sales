@@ -33,6 +33,7 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 !.env.example
+!.dev.vars.example
 
 # vercel
 .vercel
@@ -44,3 +45,7 @@ next-env.d.ts
 # foundry
 contracts/cache/
 contracts/out/
+
+# cloudflare / opennext
+.open-next/
+.dev.vars

@@ -38,18 +38,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy Marketplace Contract
 
-See **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** for the full step-by-step guide.
+See **[docs/DEPLOYMENT_OPTIONS.md](docs/DEPLOYMENT_OPTIONS.md)** for all options (contract + Cloudflare).
 
-Quick version:
-
-```bash
-cd contracts && forge build
-export PRIVATE_KEY=your_deployer_key
-export FEE_RECIPIENT=your_fee_wallet
-forge script script/DeployMarketplace.s.sol --rpc-url https://api.mainnet.abs.xyz --broadcast
-```
-
-Set `NEXT_PUBLIC_MARKETPLACE_ADDRESS` in `.env.local` to the deployed address.
+Quick contract deploy: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ## Environment Variables
 

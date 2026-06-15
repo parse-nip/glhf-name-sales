@@ -1,0 +1,7 @@
+# Copy to .dev.vars for local Cloudflare preview (npm run cf:preview)
+# Do not commit .dev.vars
+
+NEXTJS_ENV=development
+OPENSEA_API_KEY=
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=
+NEXT_PUBLIC_MARKETPLACE_ADDRESS=
